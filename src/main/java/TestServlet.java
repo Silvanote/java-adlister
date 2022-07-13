@@ -11,10 +11,15 @@ import java.rmi.ServerException;
 public class TestServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServerException, IOException {
-        String firstName = req.getParameter("name");
         res.setContentType("text/html");
-
         PrintWriter out = res.getWriter();
-        out.println("<h1> Hello " + firstName +  "! </h1>");
+
+        String firstName = req.getParameter("name");
+
+        if (firstName != null) {
+            out.println("<h1> Hello " + firstName + "! </h1>");
+        } else {
+            out.println("<h1> Hello  World! </h1>");
+        }
     }
 }
