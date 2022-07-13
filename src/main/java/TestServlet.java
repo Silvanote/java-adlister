@@ -6,7 +6,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.rmi.ServerException;
 
-@WebServlet(name = "TestServlet", urlPatterns = "/test")
+
+@WebServlet(name = "Hello World", urlPatterns = "/hello")
 public class TestServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServerException, IOException {
@@ -14,6 +15,6 @@ public class TestServlet extends HttpServlet {
         res.setContentType("text/html");
 
         PrintWriter out = res.getWriter();
-        out.println("<h1> Hello  " + firstName +  "</h1>");
+        out.println("<h1> Hello " + firstName +  "! </h1>");
     }
 }
