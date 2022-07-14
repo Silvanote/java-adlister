@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: juansfolder
@@ -20,5 +21,14 @@
     Enter password: <input type="password" name="password"><br>
     <input type="submit" value="login">
 </form>
+<c:choose>
+
+</c:choose>
+    <c:when test="${(param.username.equals(\"admin\)) && (param.password.equals(\"password\"))}">
+        response.sendRedirect("profile.jsp")
+    </c:when>
+<c:otherwise>
+        <% response.sendRedirect("/login.jsp");%>
+</c:otherwise>
 </body>
 </html>
