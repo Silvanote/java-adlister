@@ -22,8 +22,6 @@ public class MySQLAdsDao implements Ads{
             throw new RuntimeException("Error connecting to database.", e);
         }
     }
-
-
     @Override
     public List<Ad> all() {
         try {
@@ -37,7 +35,7 @@ public class MySQLAdsDao implements Ads{
                 // STEP FIVE: Interpret ResultSet
                 ads.add(new Ad(
                         rs.getLong("id"),
-                        rs.getInt("user_id_"),
+                        rs.getInt("user_id"),
                         rs.getString("title"),
                         rs.getString("description")
                 ));
@@ -53,7 +51,7 @@ public class MySQLAdsDao implements Ads{
     public Long insert(Ad ad) {
         try {
             Statement stmt = connection.createStatement();
-            String query = "INSERT INTO ads (user, id, title, description) VALUES( '"
+            String query = "INSERT INTO ads (user_id, title, description) VALUES( '"
                             + ad.getUserId() + "','"
                             + ad.getTitle() + "','"
                             + ad.getDescription() + "')";
