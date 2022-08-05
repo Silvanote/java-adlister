@@ -9,4 +9,3 @@ public class Config {
         return "codeup";
     }
 }
-
